@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../common/include/pcl/common/time.h
+chrono
+-
+iostream
+-
+queue
+-
+string
+-
+
+/home/nvidia/pcl/examples/common/example_scope_time.cpp
+iostream
+-
+pcl/common/time.h
+-
+

@@ -1,0 +1,210 @@
+Performing C++ SOURCE FILE Test HAVE_MM_MALLOC failed with the following output:
+Change Dir: /home/nvidia/pcl/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_19942/fast"
+/usr/bin/make -f CMakeFiles/cmTC_19942.dir/build.make CMakeFiles/cmTC_19942.dir/build
+make[1]: Entering directory '/home/nvidia/pcl/release/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_19942.dir/src.cxx.o
+/usr/bin/c++    -DHAVE_MM_MALLOC   -o CMakeFiles/cmTC_19942.dir/src.cxx.o -c /home/nvidia/pcl/release/CMakeFiles/CMakeTmp/src.cxx
+/home/nvidia/pcl/release/CMakeFiles/CMakeTmp/src.cxx:6:22: fatal error: mm_malloc.h: No such file or directory
+             #include <mm_malloc.h>
+                      ^~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_19942.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_19942.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_19942.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/nvidia/pcl/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_19942/fast' failed
+make: *** [cmTC_19942/fast] Error 2
+
+Return value: 1
+Source file was:
+
+        // Intel compiler defines an incompatible _mm_malloc signature
+        #if defined(__INTEL_COMPILER)
+            #include <malloc.h>
+        #else
+            #include <mm_malloc.h>
+        #endif
+        int main()
+        {
+          void* mem = _mm_malloc (100, 16);
+          return 0;
+        }
+Performing C++ SOURCE FILE Test HAVE_SSE4_2_EXTENSIONS failed with the following output:
+Change Dir: /home/nvidia/pcl/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_bb167/fast"
+/usr/bin/make -f CMakeFiles/cmTC_bb167.dir/build.make CMakeFiles/cmTC_bb167.dir/build
+make[1]: Entering directory '/home/nvidia/pcl/release/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_bb167.dir/src.cxx.o
+/usr/bin/c++    -DHAVE_SSE4_2_EXTENSIONS -msse4.2   -o CMakeFiles/cmTC_bb167.dir/src.cxx.o -c /home/nvidia/pcl/release/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option ‘-msse4.2’
+CMakeFiles/cmTC_bb167.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_bb167.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_bb167.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/nvidia/pcl/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_bb167/fast' failed
+make: *** [cmTC_bb167/fast] Error 2
+
+Return value: 1
+Source file was:
+
+        #include <emmintrin.h>
+        #include <nmmintrin.h>
+        int main ()
+        {
+          long long a[2] = {  1, 2 };
+          long long b[2] = { -1, 3 };
+          long long c[2];
+          __m128i va = _mm_loadu_si128 ((__m128i*)a);
+          __m128i vb = _mm_loadu_si128 ((__m128i*)b);
+          __m128i vc = _mm_cmpgt_epi64 (va, vb);
+
+          _mm_storeu_si128 ((__m128i*)c, vc);
+          if (c[0] == -1LL && c[1] == 0LL)
+            return (0);
+          else
+            return (1);
+        }
+Performing C++ SOURCE FILE Test HAVE_SSE4_1_EXTENSIONS failed with the following output:
+Change Dir: /home/nvidia/pcl/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_29cf6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_29cf6.dir/build.make CMakeFiles/cmTC_29cf6.dir/build
+make[1]: Entering directory '/home/nvidia/pcl/release/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_29cf6.dir/src.cxx.o
+/usr/bin/c++    -DHAVE_SSE4_1_EXTENSIONS -msse4.1   -o CMakeFiles/cmTC_29cf6.dir/src.cxx.o -c /home/nvidia/pcl/release/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option ‘-msse4.1’
+CMakeFiles/cmTC_29cf6.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_29cf6.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_29cf6.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/nvidia/pcl/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_29cf6/fast' failed
+make: *** [cmTC_29cf6/fast] Error 2
+
+Return value: 1
+Source file was:
+
+        #include <smmintrin.h>
+        int main ()
+        {
+          __m128 a, b;
+          float vals[4] = {1, 2, 3, 4};
+          const int mask = 123;
+          a = _mm_loadu_ps (vals);
+          b = a;
+          b = _mm_dp_ps (a, a, mask);
+          _mm_storeu_ps (vals,b);
+          return (0);
+        }
+Performing C++ SOURCE FILE Test HAVE_SSSE3_EXTENSIONS failed with the following output:
+Change Dir: /home/nvidia/pcl/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_fdfb6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fdfb6.dir/build.make CMakeFiles/cmTC_fdfb6.dir/build
+make[1]: Entering directory '/home/nvidia/pcl/release/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fdfb6.dir/src.cxx.o
+/usr/bin/c++    -DHAVE_SSSE3_EXTENSIONS -mssse3   -o CMakeFiles/cmTC_fdfb6.dir/src.cxx.o -c /home/nvidia/pcl/release/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option ‘-mssse3’
+CMakeFiles/cmTC_fdfb6.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_fdfb6.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_fdfb6.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/nvidia/pcl/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_fdfb6/fast' failed
+make: *** [cmTC_fdfb6/fast] Error 2
+
+Return value: 1
+Source file was:
+
+        #include <tmmintrin.h>
+        int main ()
+        {
+          __m128i a, b;
+          int vals[4] = {-1, -2, -3, -4};
+          a = _mm_loadu_si128 ((const __m128i*)vals);
+          b = _mm_abs_epi32 (a);
+          _mm_storeu_si128 ((__m128i*)vals, b);
+          return (0);
+        }
+Performing C++ SOURCE FILE Test HAVE_SSE3_EXTENSIONS failed with the following output:
+Change Dir: /home/nvidia/pcl/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4b7e9/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4b7e9.dir/build.make CMakeFiles/cmTC_4b7e9.dir/build
+make[1]: Entering directory '/home/nvidia/pcl/release/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_4b7e9.dir/src.cxx.o
+/usr/bin/c++    -DHAVE_SSE3_EXTENSIONS -msse3   -o CMakeFiles/cmTC_4b7e9.dir/src.cxx.o -c /home/nvidia/pcl/release/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option ‘-msse3’
+CMakeFiles/cmTC_4b7e9.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_4b7e9.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_4b7e9.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/nvidia/pcl/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_4b7e9/fast' failed
+make: *** [cmTC_4b7e9/fast] Error 2
+
+Return value: 1
+Source file was:
+
+        #include <pmmintrin.h>
+        int main ()
+        {
+            __m128d a, b;
+            double vals[2] = {0};
+            a = _mm_loadu_pd (vals);
+            b = _mm_hadd_pd (a,a);
+            _mm_storeu_pd (vals, b);
+            return (0);
+        }
+Performing C++ SOURCE FILE Test HAVE_SSE2_EXTENSIONS failed with the following output:
+Change Dir: /home/nvidia/pcl/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_30acc/fast"
+/usr/bin/make -f CMakeFiles/cmTC_30acc.dir/build.make CMakeFiles/cmTC_30acc.dir/build
+make[1]: Entering directory '/home/nvidia/pcl/release/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_30acc.dir/src.cxx.o
+/usr/bin/c++    -DHAVE_SSE2_EXTENSIONS -msse2   -o CMakeFiles/cmTC_30acc.dir/src.cxx.o -c /home/nvidia/pcl/release/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option ‘-msse2’
+CMakeFiles/cmTC_30acc.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_30acc.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_30acc.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/nvidia/pcl/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_30acc/fast' failed
+make: *** [cmTC_30acc/fast] Error 2
+
+Return value: 1
+Source file was:
+
+        #include <emmintrin.h>
+        int main ()
+        {
+            __m128d a, b;
+            double vals[2] = {0};
+            a = _mm_loadu_pd (vals);
+            b = _mm_add_pd (a,a);
+            _mm_storeu_pd (vals,b);
+            return (0);
+        }
+Performing C++ SOURCE FILE Test HAVE_SSE_EXTENSIONS failed with the following output:
+Change Dir: /home/nvidia/pcl/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_381c1/fast"
+/usr/bin/make -f CMakeFiles/cmTC_381c1.dir/build.make CMakeFiles/cmTC_381c1.dir/build
+make[1]: Entering directory '/home/nvidia/pcl/release/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_381c1.dir/src.cxx.o
+/usr/bin/c++    -DHAVE_SSE_EXTENSIONS -msse   -o CMakeFiles/cmTC_381c1.dir/src.cxx.o -c /home/nvidia/pcl/release/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option ‘-msse’; did you mean ‘-fdse’?
+CMakeFiles/cmTC_381c1.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_381c1.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_381c1.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/nvidia/pcl/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_381c1/fast' failed
+make: *** [cmTC_381c1/fast] Error 2
+
+Return value: 1
+Source file was:
+
+        #include <xmmintrin.h>
+        int main ()
+        {
+            __m128 a, b;
+            float vals[4] = {0};
+            a = _mm_loadu_ps (vals);
+            b = a;
+            b = _mm_add_ps (a,b);
+            _mm_storeu_ps (vals,b);
+            return (0);
+        }
